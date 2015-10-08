@@ -76,7 +76,7 @@ public class ClearEditText extends EditText implements TextWatcher, View.OnFocus
                     R.drawable.icon_close);
         }
 
-        mClearDrawable.setBounds(0, 0, 80, 80); //Icon Size
+        mClearDrawable.setBounds(0, 0, 70, 70); //Icon Size
 
         // 默认设置隐藏图标
         setClearIconVisible(false);

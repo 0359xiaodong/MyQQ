@@ -54,6 +54,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             case R.id.al_tvw_new_user:
                 newUserClickAction();
                 break;
+            case R.id.al_tvw_cant_login:
+                newUserClickAction();
+                break;
             case R.id.al_btn_login:
                 loginClickAction();
                 break;
@@ -69,8 +72,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             ToastUtils.showShortToast(getApplicationContext(), R.string.please_input_password);
             return;
         }
+        startLogin();
+    }
+
+    private void startLogin() {
+        mUIHelper.showWaitingMask();
         HashMap<String, Object> taskParam = new HashMap<String, Object>();
-        new HttpAsyncTask().execute(taskParam, "", this, "");
+//        new HttpAsyncTask().execute(taskParam, "", this, "");
     }
 
     private void newUserClickAction() {

@@ -16,4 +16,6 @@
 
     <string name="please_input_account">请输入账号</string>
     <string name="please_input_password">请输入密码</string>
+
+    <string name="close">关闭</string>
 </resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/web_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/simple_blue">
+
+        <TextView
+            android:id="@+id/webtitle_tvw_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/icon_back_white"
+            android:gravity="center"
+            android:paddingLeft="5dp"
+            android:text="返回"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/webtitle_tvw_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/webtitle_tvw_left"
+            android:padding="10dp"
+            android:text="@string/close"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/webtitle_ivw_left"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/webtitle_tvw_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:text="@string/input_phone_number"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/webtitle_ivw_right"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/webtitle_tvw_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/web_title_bar"></WebView>
+
+    <View
+        android:id="@+id/web_pdr_load"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/web_title_bar"
+        android:background="#00ff00" />
+</RelativeLayout>

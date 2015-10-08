@@ -15,7 +15,7 @@
         myapp:border_color="@color/white"
         myapp:border_width="2dp" />
 
-    <EditText
+    <com.liujian.myqq.view.ClearEditText
         android:id="@+id/al_edt_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,10 +25,12 @@
         android:hint="@string/qq_phone_mail"
         android:paddingBottom="10dp"
         android:paddingLeft="15dp"
+        android:paddingRight="10dp"
         android:paddingTop="10dp"
+        android:singleLine="true"
         android:textSize="18sp" />
 
-    <EditText
+    <com.liujian.myqq.view.ClearEditText
         android:id="@+id/al_edt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,8 +39,10 @@
         android:hint="@string/password"
         android:paddingBottom="10dp"
         android:paddingLeft="15dp"
+        android:paddingRight="10dp"
         android:paddingTop="10dp"
         android:password="true"
+        android:singleLine="true"
         android:textSize="18sp" />
 
     <Button
@@ -54,7 +58,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/al_tvw_new_user"
+        android:id="@+id/al_tvw_cant_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -65,7 +69,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/al_tvw_cant_login"
+        android:id="@+id/al_tvw_new_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
