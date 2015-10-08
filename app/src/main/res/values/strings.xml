@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MyQQ</string>
+    <string name="menu_settings">Settings</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="login">登 录</string>
+    <string name="register">新用户</string>
+
+    <string name="input_phone_number">请填写手机号码</string>
+    <string name="input_your_phone_number">请输入你的手机号码</string>
+    <string name="next_step">下一步</string>
+    <string name="read_rules">我已阅读并同意<a style="color:blue;text-decoration:none;" href='http://www.baidu.com'>使用条款和隐私政策</a></string>
+    <string name="qq_phone_mail">QQ号/手机号/邮箱</string>
+    <string name="password">密码</string>
+    <string name="cannot_login">无法登录?</string>
+    <string name="new_user">新用户</string>
+
+    <string name="please_input_account">请输入账号</string>
+    <string name="please_input_password">请输入密码</string>
+</resources>
