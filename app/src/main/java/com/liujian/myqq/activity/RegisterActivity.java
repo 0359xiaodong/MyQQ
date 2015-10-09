@@ -45,6 +45,7 @@ public class RegisterActivity extends BaseActivity {
         mUIHelper.setLeftStringLeftDrawable(R.drawable.icon_back_white);
         mUIHelper.setLeftString(R.string.back);
         mUIHelper.setTitle(R.string.input_phone_number);
+        mUIHelper.tvwLeftTitle.setOnClickListener(this);
         initAction();
     }
 
@@ -69,6 +70,9 @@ public class RegisterActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.title_tvw_left:
+                this.finish();
+                break;
             case R.id.fr_btn_next:
                 phone = edtPhone.getText().toString();
                 startRegister();

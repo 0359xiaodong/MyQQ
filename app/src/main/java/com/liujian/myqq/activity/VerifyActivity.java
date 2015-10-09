@@ -43,8 +43,9 @@ public class VerifyActivity extends BaseActivity {
         View v = inflater.inflate(R.layout.fragment_verify, mUIHelper.getContainer(), true);
         ViewUtils.inject(this, v);
         mUIHelper.setLeftStringLeftDrawable(R.drawable.icon_back_white);
-        mUIHelper.setLeftString(R.string.input_phone_number);
+        mUIHelper.setLeftString(R.string.back);
         mUIHelper.setTitle(R.string.input_code_number);
+        mUIHelper.tvwLeftTitle.setOnClickListener(this);
 
         tvwTip.setText(getString(R.string.we_have_send_your_phone_text, GlobeConfig.globeUser.phone));
         initAction();
@@ -72,6 +73,9 @@ public class VerifyActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.title_tvw_left:
+                this.finish();
+                break;
             case R.id.fr_btn_next:
                 code = edtCode.getText().toString();
                 startVerify();
