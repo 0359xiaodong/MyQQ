@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.liujian.myqq.R;
+import com.liujian.myqq.data.ParserCommonRsp;
 import com.liujian.myqq.task.HttpAsyncTask;
 import com.liujian.myqq.utils.TextUtils;
 import com.liujian.myqq.utils.ToastUtils;
@@ -87,7 +88,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     @Override
-    public void notifyData(int commdID, String respData, Object object) {
+    public void notifyData(int commdID, ParserCommonRsp respData, Object object) {
 
     }
 

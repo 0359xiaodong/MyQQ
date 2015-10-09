@@ -15,9 +15,9 @@ import java.util.Map;
 
 public class HttpManager {
 
-    private static final int REQUEST_TIMEOUT = 15000;
+    private static final int REQUEST_TIMEOUT = 8000;
 
-    private static final int CONNECTION_TIMEOUT = 15000;
+    private static final int CONNECTION_TIMEOUT = 8000;
 
     private static final String HTTP_HEADER_CONTENT_TYPE_KEY = "Content-Type";
     private static final String HTTP_HEADER_CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded";

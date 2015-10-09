@@ -6,6 +6,14 @@
     android:background="@color/backgound_color"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/fv_tvw_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/back"
+        android:textColor="@color/light_dark" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,37 +21,39 @@
         android:background="@drawable/layout_background"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:paddingTop="10dp"
-            android:text="中国+86"
-            android:textColor="@color/simple_blue"
-            android:textSize="18sp" />
+        <com.liujian.myqq.view.ClearEditText
+            android:id="@+id/fv_edt_code"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/layout_background"
+            android:hint="@string/input_code_number"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true" />
 
         <View
             android:layout_width="0.4dp"
             android:layout_height="match_parent"
             android:background="@color/backgound_color" />
 
-        <com.liujian.myqq.view.ClearEditText
-            android:id="@+id/fr_edt_phone"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/layout_background"
-            android:hint="@string/input_your_phone_number"
-            android:inputType="number"
+        <TextView
+            android:id="@+id/fv_tvw_resend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
             android:paddingLeft="15dp"
-            android:paddingRight="10dp"
-            android:singleLine="true" />
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:text="@string/re_send"
+            android:textColor="@color/simple_blue"
+            android:textSize="18sp" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/fr_btn_next"
+        android:id="@+id/fv_btn_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -57,12 +67,12 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/fr_tvw_rules"
+        android:id="@+id/fv_tvw_rules"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:autoLink="web"
-        android:text="@string/read_rules"
+        android:text="@string/link_to_phone"
         android:textSize="12sp" />
 </LinearLayout>

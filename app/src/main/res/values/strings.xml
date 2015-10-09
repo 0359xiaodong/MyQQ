@@ -7,6 +7,8 @@
 
     <string name="input_phone_number">请填写手机号码</string>
     <string name="input_your_phone_number">请输入你的手机号码</string>
+    <string name="please_input_code_number">请输入短信验证码</string>
+    <string name="input_code_number">填写验证码</string>
     <string name="next_step">下一步</string>
     <string name="read_rules">我已阅读并同意<a style="color:blue;text-decoration:none;" href='http://www.baidu.com'>使用条款和隐私政策</a></string>
     <string name="qq_phone_mail">QQ号/手机号/邮箱</string>
@@ -18,4 +20,9 @@
     <string name="please_input_password">请输入密码</string>
 
     <string name="close">关闭</string>
+    <string name="back">返回</string>
+    <string name="re_send">重新发送</string>
+
+    <string name="we_have_send_your_phone_text">我们已给你的手机号码 %1$s 发送了一条验证码短信.</string>
+    <string name="link_to_phone">绑定手机号(可用于登录LJQQ).</string>
 </resources>

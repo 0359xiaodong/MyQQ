@@ -3,7 +3,12 @@ package com.liujian.myqq.task;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 
+import com.liujian.myqq.data.ParserCommonRsp;
+import com.liujian.myqq.globel.GlobeConfig;
+import com.liujian.myqq.globel.HttpRequestCode;
 import com.liujian.myqq.utils.LJLog;
+import com.liujian.myqq.utils.SecurityUtil;
+
 import org.json.JSONObject;
 
 import java.text.NumberFormat;
@@ -21,7 +26,7 @@ public class HttpAsyncTask extends AsyncTask<Object, Object, JSONObject> {
     private HttpAsyncTaskListener mListener;
     private int commdID;
     private String requestUrl;
-    private String url = "http";
+    private String url = GlobeConfig.BASE_URL;
 
     @Override
     protected JSONObject doInBackground(Object... params) {
@@ -29,14 +34,18 @@ public class HttpAsyncTask extends AsyncTask<Object, Object, JSONObject> {
         commdID = (Integer) params[1];
         mListener = (HttpAsyncTaskListener) params[2];
         requestUrl = (String) params[3];
+        url += requestUrl;
         String responseString = "";
-
         try {
             requestNum++;
             LJLog.d("HTTP请求 --" + requestNum + "-- url = " + url);
+            taskParam.put("verify", SecurityUtil.getMD5(SecurityUtil.KEY));
+            taskParam.put("from", "Android");
+
             for (Entry<String, Object> s : taskParam.entrySet()) {
                 LJLog.d("    parama -- " + requestNum + " -->" + s.getKey() + " : " + s.getValue());
             }
+
             responseString = HttpManager.getInstance().sendPostRequest(taskParam, url);
             LJLog.d("HTTP返回--" + requestNum + " -- " + responseString);
             if (TextUtils.isEmpty(responseString.trim())) {
@@ -57,24 +66,20 @@ public class HttpAsyncTask extends AsyncTask<Object, Object, JSONObject> {
         }
         try {
             if (result != null) {
-                String parserCommonRsp = new String();
-//                parserCommonRsp.parseData(result);
+                ParserCommonRsp parserCommonRsp = new ParserCommonRsp();
+                parserCommonRsp.parseData(result);
                 LJLog.d("HTTP成功，请求 " + requestNum + " 次，失败 " + requestFailNum + " 次，失败率：" + getPercent(requestFailNum, requestNum) + "  请求url：" + url);
-//                if (parserCommonRsp.rspStatus.msgCode == HttpRespCode.HTTP_TOKENT_INVALID) {
-//                    EventBus.getDefault().post(
-//                            new BusEvent(GlobeCommand.EVENT_CMD_TOKEN_BAD, parserCommonRsp.rspStatus.msgString));
-//                }
+                if (parserCommonRsp.status == HttpRequestCode.HTTP_TOKENT_INVALID) {
+                }
                 mListener.notifyData(commdID, parserCommonRsp, null);
-            }
-            else {
+            } else {
                 ErrorMessage errMsg = new ErrorMessage();
                 errMsg.errorCode = -1;
                 mListener.notifyError(commdID, errMsg);
                 requestFailNum++;
                 LJLog.d("HTTP失败，请求 " + requestNum + " 次，失败 " + requestFailNum + " 次，失败率：" + getPercent(requestFailNum, requestNum) + "  请求url：" + url);
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             ErrorMessage errMsg = new ErrorMessage();
             errMsg.errorCode = -1;
@@ -92,7 +97,7 @@ public class HttpAsyncTask extends AsyncTask<Object, Object, JSONObject> {
 
     public interface HttpAsyncTaskListener {
         // parameter object : resvered for extend
-        public void notifyData(int commdID, String respData, Object object);
+        public void notifyData(int commdID, ParserCommonRsp respData, Object object);
 
         public void notifyError(int commdID, ErrorMessage errMsg);
     }

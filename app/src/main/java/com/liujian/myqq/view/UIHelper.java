@@ -68,6 +68,15 @@ public class UIHelper {
         tvwTitleTip.setText(tip);
     }
 
+
+    public void setTitle(int resid) {
+        tvwTitle.setText(resid);
+    }
+
+    public void setTitleTip(int resid) {
+        tvwTitleTip.setText(resid);
+    }
+
     public void setLeftImgVisible(boolean visible) {
         if (visible) {
             ivwLeftTitle.setVisibility(View.VISIBLE);
@@ -96,6 +105,10 @@ public class UIHelper {
         tvwLeftTitle.setText(text);
     }
 
+    public void setLeftString(int resid) {
+        tvwLeftTitle.setText(resid);
+    }
+
     public void setLeftStringLeftDrawable(int resid) {
         Drawable drawable = mContext.getResources().getDrawable(resid);
         drawable.setBounds(0, 0, 60, 60);
@@ -104,6 +117,10 @@ public class UIHelper {
 
     public void setRightString(String text) {
         tvwRightTitle.setText(text);
+    }
+
+    public void setRightString(int resid) {
+        tvwRightTitle.setText(resid);
     }
 
     public void showWaitingMask() {
