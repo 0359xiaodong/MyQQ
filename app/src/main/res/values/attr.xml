@@ -4,4 +4,10 @@
         <attr name="border_width" format="dimension" />
         <attr name="border_color" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="DelayTextView">
+        <attr name="count_text" format="string|reference" />
+        <attr name="count_time" format="integer" />
+        <attr name="count_color" format="color" />
+    </declare-styleable>
 </resources>

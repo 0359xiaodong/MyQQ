@@ -24,5 +24,8 @@
     <string name="re_send">重新发送</string>
 
     <string name="we_have_send_your_phone_text">我们已给你的手机号码 %1$s 发送了一条验证码短信.</string>
-    <string name="link_to_phone">绑定手机号(可用于登录LJQQ).</string>
+    <string name="link_to_phone">绑定手机号（可用于登录LJQQ）.</string>
+
+    <string name="re_send_couting">重新发送（%1$s）</string>
+
 </resources>

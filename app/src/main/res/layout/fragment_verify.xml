@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,17 +39,22 @@
             android:layout_height="match_parent"
             android:background="@color/backgound_color" />
 
-        <TextView
+        <com.liujian.myqq.view.DelayTextView
             android:id="@+id/fv_tvw_resend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:paddingBottom="10dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:paddingTop="10dp"
+            android:singleLine="true"
             android:text="@string/re_send"
             android:textColor="@color/simple_blue"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            myapp:count_color="#666"
+            myapp:count_text="@string/re_send_couting"
+            myapp:count_time="60" />
 
     </LinearLayout>
 
