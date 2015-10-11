@@ -3,12 +3,22 @@
     <string name="menu_settings">Settings</string>
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
     <string name="login">登 录</string>
+    <string name="login_success">登录成功</string>
     <string name="register">新用户</string>
+
+    <string name="input_code_number">填写验证码</string>
+    <string name="set_nick">设置昵称和密码</string>
+    <string name="password_tip">请输入6~16位密码</string>
+
+    <string name="nick">昵称</string>
+
+    <string name="set_nick_tip">建议填写你的真实名字,让你的朋友更容易认出你.此昵称以后可以随时修改.</string>
+    <string name="done">完成</string>
 
     <string name="input_phone_number">请填写手机号码</string>
     <string name="input_your_phone_number">请输入你的手机号码</string>
     <string name="please_input_code_number">请输入短信验证码</string>
-    <string name="input_code_number">填写验证码</string>
+
     <string name="next_step">下一步</string>
     <string name="read_rules">我已阅读并同意<a style="color:blue;text-decoration:none;" href='http://www.baidu.com'>使用条款和隐私政策</a></string>
     <string name="qq_phone_mail">QQ号/手机号/邮箱</string>
@@ -23,9 +33,15 @@
     <string name="back">返回</string>
     <string name="re_send">重新发送</string>
 
+    <string name="message">消息</string>
+    <string name="linker">联系人</string>
+    <string name="news">动态</string>
+
     <string name="we_have_send_your_phone_text">我们已给你的手机号码 %1$s 发送了一条验证码短信.</string>
     <string name="link_to_phone">绑定手机号（可用于登录LJQQ）.</string>
 
-    <string name="re_send_couting">重新发送（%1$s）</string>
+    <string name="re_send_couting">重新发送(%1$s)</string>
+
+    <string name="percent">%1$s%%</string>
 
 </resources>

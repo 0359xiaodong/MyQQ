@@ -6,7 +6,7 @@
     android:background="@drawable/login_background">
 
     <com.liujian.myqq.view.CircleImageView
-        android:id="@+id/al_ivw_head"
+        android:id="@+id/fl_ivw_head"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
@@ -16,10 +16,10 @@
         myapp:border_width="2dp" />
 
     <com.liujian.myqq.view.ClearEditText
-        android:id="@+id/al_edt_account"
+        android:id="@+id/fl_edt_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/al_ivw_head"
+        android:layout_below="@id/fl_ivw_head"
         android:layout_marginTop="20dp"
         android:background="@drawable/layout_background_noline"
         android:hint="@string/qq_phone_mail"
@@ -31,10 +31,10 @@
         android:textSize="18sp" />
 
     <com.liujian.myqq.view.ClearEditText
-        android:id="@+id/al_edt_password"
+        android:id="@+id/fl_edt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/al_edt_account"
+        android:layout_below="@id/fl_edt_account"
         android:background="@drawable/layout_background"
         android:hint="@string/password"
         android:paddingBottom="10dp"
@@ -46,10 +46,10 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/al_btn_login"
+        android:id="@+id/fl_btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/al_edt_password"
+        android:layout_below="@id/fl_edt_password"
         android:layout_margin="18dp"
         android:background="@drawable/button_register"
         android:minHeight="0dp"
@@ -58,7 +58,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/al_tvw_cant_login"
+        android:id="@+id/fl_tvw_cant_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -69,7 +69,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/al_tvw_new_user"
+        android:id="@+id/fl_tvw_new_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -78,4 +78,5 @@
         android:text="@string/new_user"
         android:textColor="@color/simple_blue"
         android:textSize="15sp" />
+
 </RelativeLayout>

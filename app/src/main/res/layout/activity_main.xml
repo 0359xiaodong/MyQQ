@@ -1,44 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
 
-    <ImageView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/qq_background_mini" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/deep_gray" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
         android:orientation="horizontal"
-        android:paddingBottom="40dp">
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
 
-        <Button
-            android:id="@+id/am_btn_login"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_login"
-            android:minHeight="0dp"
-            android:text="@string/login"
-            android:textColor="@color/simple_blue"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/am_btn_register"
+        <com.liujian.myqq.view.TabTextView
+            android:id="@+id/am_tvw_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/button_register"
-            android:minHeight="0dp"
-            android:text="@string/register"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="@string/message"
+            android:textSize="10sp"
+            myapp:drawable_direction="Top"
+            myapp:drawable_size="30dp"
+            myapp:selected_color="@color/simple_blue"
+            myapp:selected_drawable="@drawable/icon_message_blue"
+            myapp:unselected_color="@color/icon_gray"
+            myapp:unselected_drawable="@drawable/icon_message" />
+
+        <com.liujian.myqq.view.TabTextView
+            android:id="@+id/am_tvw_linker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/icon_linker"
+            android:gravity="center"
+            android:text="@string/linker"
+            android:textSize="10sp"
+            myapp:drawable_direction="Top"
+            myapp:selected_color="@color/simple_blue"
+            myapp:drawable_size="30dp"
+            myapp:selected_drawable="@drawable/icon_linker_blue"
+            myapp:unselected_color="@color/icon_gray"
+            myapp:unselected_drawable="@drawable/icon_linker" />
+
+        <com.liujian.myqq.view.TabTextView
+            android:id="@+id/am_tvw_news"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="2dp"
+            android:drawableTop="@drawable/icon_news"
+            android:gravity="center"
+            android:text="@string/news"
+            android:textSize="10sp"
+            myapp:drawable_direction="Top"
+            myapp:drawable_size="30dp"
+            myapp:selected_color="@color/simple_blue"
+            myapp:selected_drawable="@drawable/icon_news_blue"
+            myapp:unselected_color="@color/icon_gray"
+            myapp:unselected_drawable="@drawable/icon_news" />
     </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

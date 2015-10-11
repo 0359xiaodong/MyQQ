@@ -60,6 +60,10 @@ public class UIHelper {
         }
     }
 
+    public void setTitleBarVisible(int visibility) {
+        titleBar.setVisibility(visibility);
+    }
+
     public void setTitle(String title) {
         tvwTitle.setText(title);
     }
@@ -85,6 +89,15 @@ public class UIHelper {
         }
     }
 
+    public void setLeftImgVisible(int visibility) {
+        ivwLeftTitle.setVisibility(visibility);
+    }
+
+    public void setRightImgVisible(int visibility) {
+        ivwRightTitle.setVisibility(visibility);
+    }
+
+
     public void setRightImgVisible(boolean visible) {
         if (visible) {
             ivwRightTitle.setVisibility(View.VISIBLE);
@@ -107,6 +120,18 @@ public class UIHelper {
 
     public void setLeftString(int resid) {
         tvwLeftTitle.setText(resid);
+    }
+
+    public void setLeftStringVisible(int visiblity) {
+        tvwLeftTitle.setVisibility(visiblity);
+    }
+
+    public void setRightStringVisible(int visiblity) {
+        tvwRightTitle.setVisibility(visiblity);
+    }
+
+    public void setTitleTipVisible(int visiblity) {
+        tvwTitleTip.setVisibility(visiblity);
     }
 
     public void setLeftStringLeftDrawable(int resid) {

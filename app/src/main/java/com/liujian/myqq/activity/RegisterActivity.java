@@ -17,7 +17,9 @@ import com.liujian.myqq.globel.HttpRequestCode;
 import com.liujian.myqq.globel.IRequestUrl;
 import com.liujian.myqq.interfaces.MyTextWatcher;
 import com.liujian.myqq.task.HttpAsyncTask;
+import com.liujian.myqq.utils.DeviceUtils;
 import com.liujian.myqq.utils.TextUtils;
+import com.liujian.myqq.utils.ToastUtils;
 
 import org.w3c.dom.Text;
 
@@ -69,6 +71,7 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     public void onClick(View v) {
+        DeviceUtils.hideSoftInputKeyBoard(this);
         switch (v.getId()) {
             case R.id.title_tvw_left:
                 this.finish();
@@ -91,6 +94,8 @@ public class RegisterActivity extends BaseActivity {
                     GlobeConfig.globeUser.phone = phone;
                     Intent intent = new Intent(this, VerifyActivity.class);
                     startActivity(intent);
+                } else {
+                    ToastUtils.showShortToast(getApplicationContext(), respData.jsonResponse);
                 }
                 break;
         }

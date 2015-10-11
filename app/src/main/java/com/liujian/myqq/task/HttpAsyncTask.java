@@ -47,7 +47,7 @@ public class HttpAsyncTask extends AsyncTask<Object, Object, JSONObject> {
             }
 
             responseString = HttpManager.getInstance().sendPostRequest(taskParam, url);
-            LJLog.d("HTTP返回--" + requestNum + " -- " + responseString);
+            LJLog.d("HTTP返回--" + requestNum + " -- " + new JSONObject(responseString).toString());
             if (TextUtils.isEmpty(responseString.trim())) {
                 return null;
             }

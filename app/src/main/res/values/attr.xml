@@ -10,4 +10,35 @@
         <attr name="count_time" format="integer" />
         <attr name="count_color" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="TabTextView">
+        <attr name="selected_drawable" format="reference" />
+        <attr name="unselected_drawable" format="reference" />
+        <attr name="drawable_direction" format="enum" >
+            <enum name="Left" value="0" />
+            <enum name="Top" value="1" />
+            <enum name="Right" value="2" />
+            <enum name="Bottom" value="3" />
+        </attr>
+        <attr name="drawable_size" format="dimension" />
+        <attr name="selected_color" format="color" />
+        <attr name="unselected_color" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleProgressBar">
+        <attr name="circle_progress_type" format="enum">
+            <enum name="CIRCLE" value="0" />
+            <enum name="IMAGE" value="1" />
+        </attr>
+        <attr name="circle_progress_image" format="reference"/>
+        <attr name="circle_progress_text" format="string"/>
+        <attr name="circle_progress_textSize" format="dimension" />
+        <attr name="circle_progress_textColor" format="color" />
+        <attr name="circle_progress_backColor" format="color" />
+        <attr name="circle_progress_progressColor" format="color" />
+        <attr name="circle_progress_progressPadding" format="dimension" />
+        <attr name="circle_progress_progressMax" format="integer" />
+        <attr name="circle_progress_progressCurrent" format="integer" />
+    </declare-styleable>
 </resources>

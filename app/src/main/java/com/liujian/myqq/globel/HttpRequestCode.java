@@ -15,5 +15,7 @@ public class HttpRequestCode {
     public static final int CODE_USER_LOGIN          = 2;
     // 注册验证
     public static final int CODE_VERIFY_REGISTER     = 3;
+    // 设置昵称
+    public static final int CODE_SET_NICK            = 4;
 
 }

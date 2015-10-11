@@ -69,14 +69,26 @@ public class DelayTextView extends TextView implements View.OnClickListener {
         mOnClickListener = listener;
     }
 
-    @Override
-    public void onClick(View v) {
+    public void hasSendMessage() {
         setEnabled(false);
         orignString = getText().toString();
         orignColor = getCurrentTextColor();
         setText(getContext().getString(stringId, count + ""));
         setTextColor(color);
         handler.sendEmptyMessageDelayed(DELAY_COUNT, 1000);
+    }
+
+    public void removeSendMessage() {
+        setEnabled(true);
+        setText(orignString);
+        setTextColor(orignColor);
+        handler.removeMessages(DELAY_COUNT);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+//        hasSendMessage();
         if (mOnClickListener != null) {
             mOnClickListener.onClick(v);
         }

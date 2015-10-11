@@ -36,6 +36,9 @@ public class TextUtils {
     }
 
     public static boolean verifyText(EditText editText, int min, int max) {
+        if (max < 0) {
+            return min <= editText.getText().toString().trim().length();
+        }
         return verifyText(editText.getText().toString(), min, max);
     }
 
@@ -44,6 +47,9 @@ public class TextUtils {
     }
 
     public static boolean verifyText(String content, int min, int max) {
+        if (max < 0) {
+            return min <= content.trim().length();
+        }
         return min <= content.trim().length() && content.trim().length() <= max;
     }
 }
