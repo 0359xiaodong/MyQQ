@@ -57,15 +57,6 @@ public class MipcaActivityCapture extends Activity implements Callback {
 		CameraManager.init(getApplication());
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
 		
-		Button mButtonBack = (Button) findViewById(R.id.button_back);
-		mButtonBack.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				MipcaActivityCapture.this.finish();
-				
-			}
-		});
 		hasSurface = false;
 		inactivityTimer = new InactivityTimer(this);
 	}

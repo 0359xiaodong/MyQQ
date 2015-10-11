@@ -22,7 +22,7 @@
     <color name="icon_gray">#949494</color>
     <color name="light_dark">#666</color>
 
-    <color name="shade">#66666666</color>
+    <color name="shade">#99000000</color>
 
     <color name="light_green">#8DB928</color>
     <color name="light_blue">#2fc0f9</color>

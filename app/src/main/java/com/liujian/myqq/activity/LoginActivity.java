@@ -14,12 +14,14 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import com.liujian.myqq.R;
 import com.liujian.myqq.data.ParserCommonRsp;
 import com.liujian.myqq.data.User;
+import com.liujian.myqq.globel.Constant;
 import com.liujian.myqq.globel.GlobeConfig;
 import com.liujian.myqq.globel.HttpRequestCode;
 import com.liujian.myqq.globel.IRequestUrl;
 import com.liujian.myqq.task.HttpAsyncTask;
 import com.liujian.myqq.utils.DeviceUtils;
 import com.liujian.myqq.utils.SecurityUtil;
+import com.liujian.myqq.utils.SharePreferenceUtil;
 import com.liujian.myqq.utils.TextUtils;
 import com.liujian.myqq.utils.ToastUtils;
 
@@ -113,12 +115,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                     try {
                         GlobeConfig.globeUser.parseData(new JSONObject(respData.jsonResponse));
                         Intent intent = new Intent(this, QQMainActivity.class);
+                        SharePreferenceUtil.getInstance().setObjectValue(getApplicationContext(), Constant.KEY_USER_INFO, GlobeConfig.globeUser);
                         ToastUtils.showShortToast(getApplicationContext(), R.string.login_success);
                         startActivity(intent);
                         this.finish();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                } else {
+                    ToastUtils.showShortToast(getApplicationContext(), respData.jsonResponse);
                 }
                 break;
         }

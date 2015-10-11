@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.liujian.myqq.data.ParserCommonRsp;
 import com.liujian.myqq.globel.GlobeConfig;
 import com.liujian.myqq.globel.HttpRequestCode;
+import com.liujian.myqq.utils.DeviceUtils;
 import com.liujian.myqq.utils.LJLog;
 import com.liujian.myqq.utils.SecurityUtil;
 
@@ -39,6 +40,10 @@ public class HttpAsyncTask extends AsyncTask<Object, Object, JSONObject> {
         try {
             requestNum++;
             LJLog.d("HTTP请求 --" + requestNum + "-- url = " + url);
+            if (!TextUtils.isEmpty(GlobeConfig.globeUser.token)) {
+                taskParam.put("token", GlobeConfig.globeUser.token);
+            }
+            taskParam.put("deviceId", GlobeConfig.device_id);
             taskParam.put("verify", SecurityUtil.getMD5(SecurityUtil.KEY));
             taskParam.put("from", "Android");
 

@@ -1,6 +1,7 @@
 package com.liujian.myqq.data;
 
 import com.liujian.myqq.interfaces.Parseable;
+import com.liujian.myqq.utils.TextUtils;
 
 import org.json.JSONObject;
 
@@ -26,5 +27,20 @@ public class User implements Parseable {
         email = data.optString("email");
         qq = data.optString("qq");
         token = data.optString("token");
+    }
+
+    public void parseUser(User user) {
+        if (user == null) return;
+        name = user.name;
+        nick = user.nick;
+        img = user.img;
+        email = user.email;
+        qq = user.qq;
+        token = user.token;
+        phone = user.phone;
+    }
+
+    public boolean isLogin() {
+        return !TextUtils.empty(token);
     }
 }

@@ -18,11 +18,12 @@
 
     <com.liujian.myqq.view.CircleImageView
         android:id="@+id/title_ivw_left"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_centerVertical="true"
         myapp:border_color="@color/white"
-        myapp:border_width="2dp"
+        myapp:border_width="1dp"
+        android:layout_marginLeft="5dp"
         android:visibility="gone" />
 
     <LinearLayout
@@ -63,8 +64,9 @@
 
         <ImageView
             android:id="@+id/title_ivw_right"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:padding="5dp"
             android:visibility="gone" />
 
         <TextView

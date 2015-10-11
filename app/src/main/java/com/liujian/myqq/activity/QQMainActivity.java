@@ -35,11 +35,13 @@ public class QQMainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         View v = inflater.inflate(R.layout.activity_main, mUIHelper.getContainer(), true);
         ViewUtils.inject(this, v);
+
         mUIHelper.setLeftStringVisible(View.GONE);
-        mUIHelper.setLeftImgVisible(View.GONE);
-        mUIHelper.setTitle(R.string.message);
         mUIHelper.ivwLeftTitle.setOnClickListener(this);
+        mUIHelper.setLeftImgVisible(View.VISIBLE);
         mUIHelper.setLeftImgResouce(R.drawable.icon_head);
+        mUIHelper.setRightImgResouce(R.drawable.icon_more);
+        mUIHelper.setRightImgVisible(true);
 
         initAction();
         setCurrentIndex(INDEX_MESSAGE);
@@ -57,12 +59,15 @@ public class QQMainActivity extends BaseActivity {
         switch (index) {
             case INDEX_MESSAGE:
                 tvwMessage.setSelect();
+                mUIHelper.setTitle(R.string.message);
                 break;
             case INDEX_LINKER:
                 tvwLinker.setSelect();
+                mUIHelper.setTitle(R.string.linker);
                 break;
             case INDEX_NEWS:
                 tvwNews.setSelect();
+                mUIHelper.setTitle(R.string.news);
                 break;
         }
         currentIndex = index;

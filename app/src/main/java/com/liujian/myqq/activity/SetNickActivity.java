@@ -108,7 +108,7 @@ public class SetNickActivity extends BaseActivity {
                     User user = new User();
                     try {
                         user.parseData(new JSONObject(respData.jsonResponse));
-                        GlobeConfig.globeUser = user;
+                        GlobeConfig.globeUser.parseUser(user);
                         Intent intent = new Intent(this, QQMainActivity.class);
                         startActivity(intent);
                         saveUserInfo();

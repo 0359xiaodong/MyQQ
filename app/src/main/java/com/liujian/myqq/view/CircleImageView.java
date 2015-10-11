@@ -52,6 +52,11 @@ public class CircleImageView extends ImageView {
     private boolean mReady;
     private boolean mSetupPending;
 
+    int top = getPaddingTop();
+    int left = getPaddingLeft();
+    int bottom = getPaddingBottom();
+    int right = getPaddingRight();
+
     public CircleImageView(Context context) {
         super(context);
     }

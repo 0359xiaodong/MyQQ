@@ -11,4 +11,6 @@ public class GlobeConfig {
 
     public static User globeUser = new User();
 
+    public static String device_id = null;
+
 }
