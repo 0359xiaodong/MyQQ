@@ -1,6 +1,5 @@
 package com.liujian.myqq.activity;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -122,14 +121,15 @@ public class ScanActivity extends BaseActivity implements SurfaceHolder.Callback
         if (resultString.equals("")) {
             Toast.makeText(ScanActivity.this, "Scan failed!", Toast.LENGTH_SHORT).show();
         } else {
-            Intent resultIntent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putString("result", resultString);
-            bundle.putParcelable("bitmap", barcode);
-            resultIntent.putExtras(bundle);
+//            Intent resultIntent = new Intent();
+//            Bundle bundle = new Bundle();
+//            bundle.putString("result", resultString);
+//            bundle.putParcelable("bitmap", barcode);
+//            resultIntent.putExtras(bundle);
 //            this.setResult(RESULT_OK, resultIntent);
         }
         SoundUtil.playSoundId(R.raw.qrcode_completed);
+        resultString;
         Toast.makeText(getApplicationContext(), "扫码成功\n二维码内容" + resultString, Toast.LENGTH_SHORT).show();
     }
 
