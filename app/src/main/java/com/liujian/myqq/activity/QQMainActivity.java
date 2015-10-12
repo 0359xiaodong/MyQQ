@@ -1,17 +1,19 @@
 package com.liujian.myqq.activity;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.PopupWindow;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.liujian.myqq.R;
 import com.liujian.myqq.data.ParserCommonRsp;
 import com.liujian.myqq.task.HttpAsyncTask;
+import com.liujian.myqq.utils.LJLog;
 import com.liujian.myqq.view.TabTextView;
 
 /**
@@ -22,6 +24,8 @@ public class QQMainActivity extends BaseActivity {
     private final int INDEX_MESSAGE = 0, INDEX_LINKER = 1, INDEX_NEWS = 2;
 
     private int currentIndex = -1;
+
+    private PopupWindow mPopupWindow;
 
     @ViewInject(R.id.am_tvw_message)
     private TabTextView tvwMessage;
@@ -37,13 +41,15 @@ public class QQMainActivity extends BaseActivity {
         ViewUtils.inject(this, v);
 
         mUIHelper.setLeftStringVisible(View.GONE);
-        mUIHelper.ivwLeftTitle.setOnClickListener(this);
         mUIHelper.setLeftImgVisible(View.VISIBLE);
         mUIHelper.setLeftImgResouce(R.drawable.icon_head);
         mUIHelper.setRightImgResouce(R.drawable.icon_more);
         mUIHelper.setRightImgVisible(true);
+        mUIHelper.ivwLeftTitle.setOnClickListener(this);
+        mUIHelper.ivwRightTitle.setOnClickListener(this);
 
         initAction();
+        initPopWindow();
         setCurrentIndex(INDEX_MESSAGE);
     }
 
@@ -91,7 +97,47 @@ public class QQMainActivity extends BaseActivity {
             case R.id.am_tvw_news:
                 setCurrentIndex(INDEX_NEWS);
                 break;
+            case R.id.title_ivw_right:
+                showPop(v, 0, 0);
+                break;
+            case R.id.mp_tvw_scan:
+                Intent intent = new Intent(this, ScanActivity.class);
+                startActivity(intent);
+                break;
         }
+    }
+
+    private void initPopWindow() {
+        View popView = inflater.inflate(R.layout.main_popup, null);
+        popView.findViewById(R.id.mp_tvw_scan).setOnClickListener(this);
+        popView.findViewById(R.id.mp_tvw_add_friend).setOnClickListener(this);
+        popView.findViewById(R.id.mp_tvw_create_chat).setOnClickListener(this);
+        mPopupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                LJLog.d("OnDismiss ...");
+                WindowManager.LayoutParams lp = getWindow().getAttributes();
+                lp.alpha = 1; //0.0-1.0
+                getWindow().setAttributes(lp);
+            }
+        });
+        mPopupWindow.setBackgroundDrawable(new ColorDrawable(0));
+    }
+
+
+    public void showPop(View parent, int x, int y) {
+        //设置popwindow显示位置
+        mPopupWindow.showAsDropDown(parent, x, y);
+        //获取popwindow焦点
+        mPopupWindow.setFocusable(true);
+        //设置popwindow如果点击外面区域，便关闭。
+        mPopupWindow.setOutsideTouchable(true);
+
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.alpha = 0.9f; //0.0-1.0
+        getWindow().setAttributes(lp);
+        mPopupWindow.update();
     }
 
     @Override

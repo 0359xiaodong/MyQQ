@@ -26,4 +26,7 @@
 
     <color name="light_green">#8DB928</color>
     <color name="light_blue">#2fc0f9</color>
+
+    <color name="pop_text_color">#272727</color>
+
 </resources>

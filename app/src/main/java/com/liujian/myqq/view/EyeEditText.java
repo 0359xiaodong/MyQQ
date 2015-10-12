@@ -85,7 +85,8 @@ public class EyeEditText extends EditText implements TextWatcher, View.OnFocusCh
                     R.drawable.icon_eye);
         }
         inputTypt = getInputType();
-        mEyeDrawable.setBounds(0, 0, 70, 70); //Icon Size
+        int bounds = (int) (getTextSize() * 1.3);
+        mEyeDrawable.setBounds(0, 0, bounds, bounds); //Icon Size
 
         // 默认设置隐藏图标
         setEyeIconVisible(false);

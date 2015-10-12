@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.liujian.myqq.R;
+import com.liujian.myqq.utils.LJLog;
 
 /**
  * Created by sh.liujian on 2015-10-8.
@@ -76,7 +77,8 @@ public class ClearEditText extends EditText implements TextWatcher, View.OnFocus
                     R.drawable.icon_close);
         }
         clearFocus();
-        mClearDrawable.setBounds(0, 0, 70, 70); //Icon Size
+        int bounds = (int) (getTextSize() * 1.3);
+        mClearDrawable.setBounds(0, 0, bounds, bounds); //Icon Size
 
         // 默认设置隐藏图标
         setClearIconVisible(false);

@@ -23,6 +23,8 @@ import com.liujian.myqq.globel.GlobeConfig;
  */
 public class LauncherActivity extends Activity implements View.OnClickListener {
 
+    public final int ACTION_CHECK = 0, ACTION_DELAY = 1;
+
     @ViewInject(R.id.fl_btn_login)
     private Button btnLogin;
     @ViewInject(R.id.fl_btn_register)
@@ -36,11 +38,9 @@ public class LauncherActivity extends Activity implements View.OnClickListener {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case 1:
+                case ACTION_CHECK:
                     if (GlobeConfig.globeUser.isLogin()) {
-                        Intent intent = new Intent(LauncherActivity.this, QQMainActivity.class);
-                        startActivity(intent);
-                        LauncherActivity.this.finish();
+                        sendEmptyMessageDelayed(ACTION_DELAY, 1000);
                     } else {
                         lltContainer.setVisibility(View.VISIBLE);
                         Animation scaleAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale_to_center);
@@ -48,6 +48,11 @@ public class LauncherActivity extends Activity implements View.OnClickListener {
                         lltContainer.startAnimation(transAnimation);
                         ivwBack.startAnimation(scaleAnimation);
                     }
+                    break;
+                case ACTION_DELAY:
+                    Intent intent = new Intent(LauncherActivity.this, QQMainActivity.class);
+                    startActivity(intent);
+                    LauncherActivity.this.finish();
                     break;
             }
         }
@@ -59,7 +64,7 @@ public class LauncherActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.fragment_launcher);
         ViewUtils.inject(this);
         initAction();
-        handler.sendEmptyMessageDelayed(1, 800);
+        handler.sendEmptyMessageDelayed(ACTION_CHECK, 800);
     }
 
     private void initAction() {

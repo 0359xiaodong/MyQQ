@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_popwindow"
+    android:orientation="vertical">
+
+    <com.liujian.myqq.view.TabTextView
+        android:id="@+id/mp_tvw_scan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_pop_icon"
+        android:drawablePadding="15dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:paddingTop="10dp"
+        android:text="@string/scan"
+        android:textSize="15sp"
+        myapp:drawable_direction="Left"
+        myapp:drawable_size="18dp"
+        myapp:unselected_color="@color/pop_text_color"
+        myapp:unselected_drawable="@drawable/icon_scan" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/simple_gray" />
+
+    <com.liujian.myqq.view.TabTextView
+        android:id="@+id/mp_tvw_add_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_pop_icon"
+        android:drawablePadding="15dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:paddingTop="10dp"
+        android:text="@string/add_friend"
+        android:textSize="15sp"
+        myapp:drawable_direction="Left"
+        myapp:drawable_size="18dp"
+        myapp:unselected_color="@color/pop_text_color"
+        myapp:unselected_drawable="@drawable/icon_add_friend" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/simple_gray" />
+
+    <com.liujian.myqq.view.TabTextView
+        android:id="@+id/mp_tvw_create_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_pop_icon"
+        android:drawablePadding="15dp"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:paddingTop="10dp"
+        android:text="@string/create_chat_group"
+        android:textSize="15sp"
+        myapp:drawable_direction="Left"
+        myapp:drawable_size="18dp"
+        myapp:unselected_color="@color/pop_text_color"
+        myapp:unselected_drawable="@drawable/icon_chat_group" />
+</LinearLayout>
