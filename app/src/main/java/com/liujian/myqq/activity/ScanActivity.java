@@ -1,5 +1,6 @@
 package com.liujian.myqq.activity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -16,6 +17,10 @@ import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.liujian.myqq.R;
 import com.liujian.myqq.data.ParserCommonRsp;
+import com.liujian.myqq.data.ScanResult;
+import com.liujian.myqq.globel.Constant;
+import com.liujian.myqq.globel.HttpRequestCode;
+import com.liujian.myqq.globel.IRequestUrl;
 import com.liujian.myqq.task.HttpAsyncTask;
 import com.liujian.myqq.utils.SoundUtil;
 import com.liujian.qr.camera.CameraManager;
@@ -24,6 +29,7 @@ import com.liujian.qr.decoding.InactivityTimer;
 import com.liujian.qr.view.ViewfinderView;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Vector;
 
 /**
@@ -46,6 +52,8 @@ public class ScanActivity extends BaseActivity implements SurfaceHolder.Callback
     private static final float BEEP_VOLUME = 0.10f;
     private boolean vibrate;
 
+    private ScanResult scanResult = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +65,7 @@ public class ScanActivity extends BaseActivity implements SurfaceHolder.Callback
         mUIHelper.setTitle(R.string.scan_code);
         mUIHelper.setLeftStringLeftDrawable(R.drawable.icon_back_white);
         mUIHelper.setLeftString(R.string.back);
+        mUIHelper.tvwLeftTitle.setOnClickListener(this);
 
         hasSurface = false;
         inactivityTimer = new InactivityTimer(this);
@@ -129,8 +138,33 @@ public class ScanActivity extends BaseActivity implements SurfaceHolder.Callback
 //            this.setResult(RESULT_OK, resultIntent);
         }
         SoundUtil.playSoundId(R.raw.qrcode_completed);
-        resultString;
-        Toast.makeText(getApplicationContext(), "扫码成功\n二维码内容" + resultString, Toast.LENGTH_SHORT).show();
+        try {
+            scanResult = new ScanResult(resultString);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (scanResult != null) {
+            analyScanResult(scanResult);
+        }
+    }
+
+    private void analyScanResult(ScanResult scanResult) {
+        switch (scanResult.resultType) {
+            case Constant.DATA_TYPE_LOGIN:
+                loginOnWeb();
+                break;
+            case Constant.DATA_TYPE_USER:
+                break;
+            case Constant.DATA_TYPE_HTML:
+                break;
+        }
+    }
+
+    private void loginOnWeb() {
+        HashMap<String, Object> taskParams = new HashMap<>();
+        taskParams.put("type", Constant.DATA_TYPE_LOGIN);
+        taskParams.put("qrtoken", scanResult.content);
+        new HttpAsyncTask().execute(taskParams, HttpRequestCode.CODE_SET_SCAN, this, IRequestUrl.SET_SCAN_INFO);
     }
 
     public ViewfinderView getViewfinderView() {
@@ -147,7 +181,15 @@ public class ScanActivity extends BaseActivity implements SurfaceHolder.Callback
 
     @Override
     public void notifyData(int commdID, ParserCommonRsp respData, Object object) {
-
+        switch (commdID) {
+            case HttpRequestCode.CODE_SET_SCAN:
+                if (respData.status == HttpRequestCode.HTTP_RESULT_SUCCESS) {
+                    Intent intent = new Intent(this, LoginOnWebActivity.class);
+                    intent.putExtra(Constant.KEY_SCAN_INFO, scanResult);
+                    startActivity(intent);
+                }
+                break;
+        }
     }
 
     @Override
@@ -166,10 +208,13 @@ public class ScanActivity extends BaseActivity implements SurfaceHolder.Callback
     }
 
 
-
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.title_tvw_left:
+                this.finish();
+                break;
+        }
     }
 
     @Override

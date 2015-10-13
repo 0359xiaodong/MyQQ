@@ -15,5 +15,6 @@ public class IRequestUrl {
     public static final String SET_NICK                    = "setUserNick";
     // 更新用户信息
     public static final String UPDATE_USER_INFO            = "updateUserInfo";
-
+    // 扫码
+    public static final String SET_SCAN_INFO               = "setQRResult";
 }

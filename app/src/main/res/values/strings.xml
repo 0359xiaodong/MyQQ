@@ -13,6 +13,9 @@
 
     <string name="nick">昵称</string>
 
+    <string name="add">添加</string>
+    <string name="more">更多</string>
+
     <string name="set_nick_tip">建议填写你的真实名字,让你的朋友更容易认出你.此昵称以后可以随时修改.</string>
     <string name="done">完成</string>
 
@@ -29,6 +32,8 @@
 
     <string name="please_input_account">请输入账号</string>
     <string name="please_input_password">请输入密码</string>
+
+    <string name="login_on_web">网页端登录确认</string>
 
     <string name="close">关闭</string>
     <string name="back">返回</string>

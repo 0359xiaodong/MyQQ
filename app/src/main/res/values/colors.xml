@@ -13,6 +13,7 @@
     <color name="white">#FFFFFF</color>
     <color name="simple_gray">#e8e8e8</color>
     <color name="gray">#888</color>
+    <color name="text_dark">#4E4E4E</color>
     <color name="simple_deep_blue">#258dcf</color>
 
     <color name="backgound_color">#F9F9FB</color>
@@ -25,6 +26,7 @@
     <color name="shade">#99000000</color>
 
     <color name="light_green">#8DB928</color>
+    <color name="simple_green">#28AA35</color>
     <color name="light_blue">#2fc0f9</color>
 
     <color name="pop_text_color">#272727</color>

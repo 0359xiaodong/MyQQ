@@ -106,7 +106,7 @@ public final class ViewfinderView extends View {
 		int height = canvas.getHeight();
 
 		paint.setColor(resultBitmap != null ? resultColor : maskColor);
-		Log.e("TAG", "canvas " + canvas.getHeight() + " " + canvas.getWidth() + "\n" + "frame "+ frame.top + " " + frame.bottom + " " + frame.left + " " + frame.right);
+//		Log.e("TAG", "canvas " + canvas.getHeight() + " " + canvas.getWidth() + "\n" + "frame "+ frame.top + " " + frame.bottom + " " + frame.left + " " + frame.right);
 		canvas.drawRect(0, 0, width, frame.top, paint);
 		canvas.drawRect(0, frame.top, frame.left, frame.bottom + 1, paint);
 		canvas.drawRect(frame.right + 1, frame.top, width, frame.bottom + 1,

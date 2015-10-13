@@ -62,18 +62,29 @@ public class QQMainActivity extends BaseActivity {
     private void setCurrentIndex(int index) {
         if (currentIndex == index) return;
         clearIndexView();
+        if (mPopupWindow.isShowing()) {
+            mPopupWindow.dismiss();
+        }
         switch (index) {
             case INDEX_MESSAGE:
                 tvwMessage.setSelect();
                 mUIHelper.setTitle(R.string.message);
+                mUIHelper.setRightImgVisible(true);
+                mUIHelper.setRightStringVisible(View.GONE);
                 break;
             case INDEX_LINKER:
                 tvwLinker.setSelect();
                 mUIHelper.setTitle(R.string.linker);
+                mUIHelper.setRightImgVisible(false);
+                mUIHelper.setRightStringVisible(View.VISIBLE);
+                mUIHelper.setRightString(R.string.add);
                 break;
             case INDEX_NEWS:
                 tvwNews.setSelect();
                 mUIHelper.setTitle(R.string.news);
+                mUIHelper.setRightImgVisible(false);
+                mUIHelper.setRightStringVisible(View.VISIBLE);
+                mUIHelper.setRightString(R.string.more);
                 break;
         }
         currentIndex = index;
@@ -135,7 +146,7 @@ public class QQMainActivity extends BaseActivity {
         mPopupWindow.setOutsideTouchable(true);
 
         WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.alpha = 0.9f; //0.0-1.0
+        lp.alpha = 0.8f; //0.0-1.0
         getWindow().setAttributes(lp);
         mPopupWindow.update();
     }

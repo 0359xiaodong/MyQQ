@@ -132,6 +132,7 @@ public class HttpManager {
                 connection.setDoOutput(true);
                 if (null != params) {
                     LJLog.d(encodeParams(params));
+                    LJLog.d("fullurl -- " + url + "?" + encodeParams(params));
                     connection.setRequestProperty(HTTP_HEADER_CONTENT_TYPE_KEY, HTTP_HEADER_CONTENT_TYPE_VALUE);
                     connection.getOutputStream().write(encodeParams(params).getBytes());
                     connection.getOutputStream().flush();

@@ -12,7 +12,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:src="@drawable/head"
-        />
+        myapp:border_color="@color/white"
+        myapp:border_width="2dp" />
 
     <com.liujian.myqq.view.ClearEditText
         android:id="@+id/fl_edt_account"
