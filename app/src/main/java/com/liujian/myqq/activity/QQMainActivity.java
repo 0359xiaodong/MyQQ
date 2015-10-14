@@ -62,9 +62,6 @@ public class QQMainActivity extends BaseActivity {
     private void setCurrentIndex(int index) {
         if (currentIndex == index) return;
         clearIndexView();
-        if (mPopupWindow.isShowing()) {
-            mPopupWindow.dismiss();
-        }
         switch (index) {
             case INDEX_MESSAGE:
                 tvwMessage.setSelect();
@@ -98,6 +95,9 @@ public class QQMainActivity extends BaseActivity {
 
     @Override
     public void onClick(View v) {
+        if (mPopupWindow.isShowing()) {
+            mPopupWindow.dismiss();
+        }
         switch (v.getId()) {
             case R.id.am_tvw_message:
                 setCurrentIndex(INDEX_MESSAGE);
