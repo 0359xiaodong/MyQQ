@@ -11,6 +11,14 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
+        <com.liujian.myqq.view.listviews.SwipeListView
+            android:id="@+id/am_lvw_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            myapp:swipeBackView="@+id/contact_item_back"
+            myapp:swipeFrontView="@+id/contact_item_front"
+            android:divider="@null"
+            myapp:swipeMode="left"/>
     </FrameLayout>
 
     <View
@@ -53,8 +61,8 @@
             android:text="@string/linker"
             android:textSize="10sp"
             myapp:drawable_direction="Top"
-            myapp:selected_color="@color/simple_blue"
             myapp:drawable_size="25dp"
+            myapp:selected_color="@color/simple_blue"
             myapp:selected_drawable="@drawable/icon_linker_blue"
             myapp:unselected_color="@color/icon_gray"
             myapp:unselected_drawable="@drawable/icon_linker" />

@@ -38,6 +38,7 @@
     <string name="close">关闭</string>
     <string name="back">返回</string>
     <string name="re_send">重新发送</string>
+    <string name="send">发送</string>
 
     <string name="message">消息</string>
     <string name="linker">联系人</string>

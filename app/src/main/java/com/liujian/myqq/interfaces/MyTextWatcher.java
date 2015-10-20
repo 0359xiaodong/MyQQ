@@ -8,6 +8,8 @@ import android.text.TextWatcher;
  */
 public class MyTextWatcher implements TextWatcher {
 
+
+
     public static interface MyAfterTextChangedListener {
         void afterTextChanged(String text);
     }

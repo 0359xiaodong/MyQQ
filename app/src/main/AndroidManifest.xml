@@ -35,6 +35,7 @@
         <activity android:name="com.liujian.myqq.activity.QQMainActivity" />
         <activity android:name="com.liujian.myqq.activity.ScanActivity" />
         <activity android:name="com.liujian.myqq.activity.LoginOnWebActivity" />
+        <activity android:name="com.liujian.myqq.activity.ContactActivity" />
     </application>
 
 </manifest>

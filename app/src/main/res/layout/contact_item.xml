@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/contact_item_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/contact_item_tvw_set_top"
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:background="@drawable/bg_set_top"
+            android:gravity="center"
+            android:paddingLeft="13dp"
+            android:paddingRight="13dp"
+            android:text="置顶"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/contact_item_tvw_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_toRightOf="@id/contact_item_tvw_set_top"
+            android:background="@drawable/bg_delete"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="删除"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/contact_item_front"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <com.liujian.myqq.view.CircleImageView
+            android:layout_marginLeft="5dp"
+            android:id="@+id/contact_item_ivw_head"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            myapp:border_color="@color/white"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_head" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/contact_item_ivw_head"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/contact_item_tvw_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="尘埃化土"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/contact_item_tvw_last"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/contact_item_ivw_head"
+                android:singleLine="true"
+                android:text="尘埃化土"
+                android:textColor="#787878"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/contact_item_tvw_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="8dp"
+            android:text="10:20"
+            android:textColor="#A6A6A6"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/contact_item_tvw_count"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/contact_item_tvw_time"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/red_point"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.4dp"
+        android:layout_alignBottom="@id/contact_item_front"
+        android:layout_marginLeft="60dp"
+        android:background="#ddd" />
+</RelativeLayout>

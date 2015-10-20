@@ -30,5 +30,6 @@
     <color name="light_blue">#2fc0f9</color>
 
     <color name="pop_text_color">#272727</color>
+    <color name="bg_contact_color">#C5DAD1</color>
 
 </resources>

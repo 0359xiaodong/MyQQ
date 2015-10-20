@@ -6,15 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.PopupWindow;
 
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.liujian.myqq.R;
+import com.liujian.myqq.adapters.ContactAdapter;
+import com.liujian.myqq.data.Contact;
 import com.liujian.myqq.data.ParserCommonRsp;
 import com.liujian.myqq.task.HttpAsyncTask;
 import com.liujian.myqq.utils.LJLog;
 import com.liujian.myqq.view.TabTextView;
+import com.liujian.myqq.view.listviews.SwipeListView;
+import com.liujian.myqq.view.listviews.SwipeListViewListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by liujian on 15/10/6.
@@ -33,6 +40,10 @@ public class QQMainActivity extends BaseActivity {
     private TabTextView tvwLinker;
     @ViewInject(R.id.am_tvw_news)
     private TabTextView tvwNews;
+    @ViewInject(R.id.am_lvw_contacts)
+    private SwipeListView slvwContasts;
+
+    private ContactAdapter contactAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +61,7 @@ public class QQMainActivity extends BaseActivity {
 
         initAction();
         initPopWindow();
+        initData();
         setCurrentIndex(INDEX_MESSAGE);
     }
 
@@ -57,6 +69,95 @@ public class QQMainActivity extends BaseActivity {
         tvwNews.setOnClickListener(this);
         tvwLinker.setOnClickListener(this);
         tvwMessage.setOnClickListener(this);
+    }
+
+    private void initData() {
+        final ArrayList<Contact> contacts = new ArrayList<>();
+        contacts.add(new Contact("尘埃", "啦啦啦啦啦啦啦...", "昨天", 3, R.drawable.head_1));
+        contacts.add(new Contact("风中尘埃", "啦啦啦啦啦啦啦...", "前天", 1, R.drawable.head_2));
+        contacts.add(new Contact("尘埃化土", "啦啦啦啦啦啦啦...", "08:10", 0, R.drawable.head_3));
+        contacts.add(new Contact("测试啦啦", "啦啦啦啦啦啦啦...", "09:09", 8, R.drawable.head_4));
+        contacts.add(new Contact("我的电脑", "啦啦啦啦啦啦啦...", "昨天", 12, R.drawable.head_5));
+        contactAdapter = new ContactAdapter(getApplicationContext(), contacts);
+        slvwContasts.setAdapter(contactAdapter);
+        slvwContasts.setSwipeListViewListener(new SwipeListViewListener() {
+            @Override
+            public void onOpened(int position, boolean toRight) {
+
+            }
+
+            @Override
+            public void onClosed(int position, boolean fromRight) {
+
+            }
+
+            @Override
+            public void onListChanged() {
+
+            }
+
+            @Override
+            public void onMove(int position, float x) {
+
+            }
+
+            @Override
+            public void onStartOpen(int position, int action, boolean right) {
+
+            }
+
+            @Override
+            public void onStartClose(int position, boolean right) {
+
+            }
+
+            @Override
+            public void onClickFrontView(int position) {
+                Intent intent = new Intent(QQMainActivity.this, ContactActivity.class);
+                intent.putExtra("contact", contacts.get(position));
+                startActivity(intent);
+            }
+
+            @Override
+            public void onClickBackView(int position) {
+
+            }
+
+            @Override
+            public void onDismiss(int[] reverseSortedPositions) {
+
+            }
+
+            @Override
+            public int onChangeSwipeMode(int position) {
+                return 0;
+            }
+
+            @Override
+            public void onChoiceChanged(int position, boolean selected) {
+
+            }
+
+            @Override
+            public void onChoiceStarted() {
+
+            }
+
+            @Override
+            public void onChoiceEnded() {
+
+            }
+
+            @Override
+            public void onFirstListItem() {
+
+            }
+
+            @Override
+            public void onLastListItem() {
+
+            }
+        });
     }
 
     private void setCurrentIndex(int index) {
